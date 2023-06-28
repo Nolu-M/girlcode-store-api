@@ -13,33 +13,33 @@ def categories_route():
     tmp_categories = [
         {
             "name": "Furniture",
-            "path": "/Category/furniture"
+            "path": "/category/furniture"
         },
         {
             "name":"Hand Bag", 
-            "path": "/Category/hand-bag"
+            "path": "/category/hand-bag"
         },
         {
             "name":"Books", 
-            "path": "/Category/books"
+            "path": "/category/books"
         },
         {
             "name":"Tech", 
-            "path": "/Category/tech"
+            "path": "/category/tech"
         },
         {
             "name":"Sneakers", 
-            "path": "/Category/sneakers"
+            "path": "/category/sneakers"
         },
         {
             "name":"Travel", 
-            "path": "/Category/travel"
+            "path": "/category/travel"
         }
     ]
 
-    categories_Dict = {
+    categories_dict = {
         "categories": tmp_categories
     }
 
-    return categories_Dict
+    return categories_dict
 
