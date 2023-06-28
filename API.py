@@ -68,5 +68,5 @@ def products_route():
 def get_image(img_name):
     filename = f'images/{img_name}'
 
-    return send_file(filename, mimetype='image/jpg')
+    return send_file (filename, mimetype='image/jpg')
 
