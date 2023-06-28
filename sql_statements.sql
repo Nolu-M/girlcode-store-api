@@ -13,3 +13,11 @@ VALUES ('Furniture', 'furniture'),
 ('Tech','tech'),
 ('Sneakers', 'sneakers'),
 ('Travel', 'travel');
+
+-- Add cat_img column on categories
+ALTER TABLE categories
+ADD cat_img TEXT;
+
+--updated cat_img column for all rows
+UPDATE categories 
+SET cat_img= 'cat_img.jpg';
