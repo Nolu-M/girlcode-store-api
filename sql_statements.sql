@@ -20,7 +20,8 @@ ADD cat_img TEXT;
 
 --Updated cat_img column for all rows
 UPDATE categories 
-SET cat_img= 'cat_img.jpg';
+SET cat_img= 'cats_img.jpg';
+
 
 --Create Products table
 CREATE TABLE products (
@@ -35,6 +36,10 @@ CREATE TABLE products (
 INSERT INTO products (prod_name, prod_img, prod_desc, prod_slug, prod_price)
 VALUES ('Insta Mini 9', 'insta-mini-9.png', 'Selfie mode and selfie mirror, macro mode',
 	   'insta-mini-9', 99.85);
+	   
+INSERT INTO products (prod_name, prod_img, prod_desc, prod_slug, prod_price)
+VALUES ('Base Camp Duffel M', 'duffel.png', 'Black and yellow, huge duffel bag with handles',
+	   'Base Camp Duffel M', 159.99);
 	   
 CREATE TABLE categories_products (
 	id SERIAL PRIMARY KEY,

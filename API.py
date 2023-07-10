@@ -59,6 +59,34 @@ def category_route(cat_slug):
         return {}
     
 
+@app.route('/category/<cat_slug>/products')
+def category_products_route(cat_slug):
+    print(cat_slug)
+    tmp_cat_prods = {
+        "cat_slug": cat_slug
+    }
+
+    cat_prods_inst = db('categories_products')
+
+    joins_list = [
+        {
+            "table": "categories",
+            "on_cond": "categories_products.cat_id=categories.id"
+        },
+        {
+             "table": "products",
+            "on_cond": "categories_products.cat_id=products.id"
+        }
+    ]
+
+    condition =f"WHERE categories.slug='{cat_slug}'"
+
+    rows = cat_prods_inst.select(condition, joins_list)
+
+    print(rows)
+
+    return tmp_cat_prods
+
 
 @app.route('/products')
 def products_route():

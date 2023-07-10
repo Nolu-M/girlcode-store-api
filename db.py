@@ -16,9 +16,14 @@ class db:
         self.pool = conn_pool
 
 
-    def select(self, condition=None):
+    def select(self, condition=None, joins=None):
         conn = self.pool.getconn()
         cursor = conn.cursor()
+
+        joins_stat=None
+
+        if joins:
+            print(joins)
 
         cursor.execute(f'SELECT * FROM {self.table} {condition} ORDER BY id ASC')
 
