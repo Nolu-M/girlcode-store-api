@@ -68,6 +68,8 @@ def category_products_route(cat_slug):
 
     cat_prods_inst = db('categories_products')
 
+    columns="products.*"
+
     joins_list = [
         {
             "table": "categories",
@@ -75,18 +77,36 @@ def category_products_route(cat_slug):
         },
         {
              "table": "products",
-            "on_cond": "categories_products.cat_id=products.id"
+            "on_cond": "categories_products.prod_id=products.id"
         }
     ]
 
     condition =f"WHERE categories.slug='{cat_slug}'"
 
-    rows = cat_prods_inst.select(condition, joins_list)
+    rows = cat_prods_inst.select(columns, condition, joins_list)
+    tmp_products= []
+
+    for row in rows:
+        tmp_prod = {
+            "id": row[0],
+            "prod_name": row[1],
+            "prod_img": row[2], 
+            "prod_desc": row[3], 
+            "prod_slug": row[4], 
+            "prod_price": row[4]
+        }
+
+        tmp_products.append(tmp_prod)
+
 
     print(rows)
+ 
+    tmp_cat_prods = {
+        "cat_slug": cat_slug,
+        "products": tmp_products
+    }
 
-    return tmp_cat_prods
-
+    return tmp_products
 
 @app.route('/products')
 def products_route():
